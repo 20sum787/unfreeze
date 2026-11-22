@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Unfreeze</string>
+    <string name="update_webview">Update Android System WebView to open Unfreeze.</string>
+</resources>

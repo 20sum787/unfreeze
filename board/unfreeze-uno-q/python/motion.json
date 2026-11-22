@@ -1,0 +1,22 @@
+{
+  "enabled": true,
+  "modelFile": "models/movement.eim",
+  "project": {"id": 1170229, "impulse_id": 1, "deploy_version": 4},
+  "sampleRateHz": 64,
+  "windowSamples": 128,
+  "hopSamples": 16,
+  "axes": [
+    {"target": "acc_fwd", "source": "ax_g", "scale": 1},
+    {"target": "acc_vert", "source": "ay_g", "scale": 1},
+    {"target": "acc_lat", "source": "az_g", "scale": 1}
+  ],
+  "riskLabels": {"freeze": "freeze"},
+  "normalLabels": ["normal"],
+  "mount": "Lower-back belt. Two reference recordings confirmed in g. Physical axis order and signs require bench verification.",
+  "mountVerified": false,
+  "allowUnverifiedMountForDemo": true,
+  "riskMinimumScore": 0.70,
+  "confirmWindows": 2,
+  "clearWindows": 2,
+  "enableLiveCues": true
+}

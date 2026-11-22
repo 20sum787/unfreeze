@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unfreeze | Software implementation and presentation notes</title>
+<style>
+body{max-width:54rem;margin:auto;padding:2rem 1.2rem 4rem;color:#182f2a;background:#fff;font:1rem/1.6 system-ui,sans-serif}
+h1,h2,h3{line-height:1.2} h1{font-size:2.3rem} h2{margin-top:2rem;border-top:2px solid #27715d;padding-top:.8rem} h3{margin-bottom:.25rem}
+p{margin:.6rem 0} table{border-collapse:collapse;width:100%;font-size:.95rem} td,th{text-align:left;vertical-align:top;border-bottom:1px solid #becfc8;padding:.55rem} th{background:#eaf2ee}
+blockquote{margin:.75rem 0;padding:.1rem 1rem;border-left:3px solid #27715d} a{color:#125844} code{overflow-wrap:anywhere} small{color:#405c52}
+@media print{body{padding:0;font-size:10.5pt} h2,h3{break-after:avoid} tr,blockquote{break-inside:avoid}}
+</style>
+</head>
+<body><main>
+<h1>Unfreeze software implementation</h1>
+<p><small>Arduino UNO Q · App Lab build <code>freeze-pulse-alarm-v3</code> · Report text and presentation notes</small></p>
+<h2>Report text</h2>
+<p>Unfreeze is a wearable prototype that uses two on-device Edge Impulse models to decide when to offer a cue. A chest-facing USB camera looks for a doorway ahead. A separate movement model uses three axes of acceleration from a lower-back sensor to classify the current window as <em>freeze</em> or <em>normal</em>. Each model can trigger its own response. A doorway can prompt an audio rhythm while walking remains normal, and a movement event can trigger thigh vibration even when no door is visible.</p>
+<p>The UNO Q divides the work between its Linux processor and its microcontroller. Linux runs both models and decides which cue to request. The microcontroller samples the Movement module and times the Vibro and Buzzer outputs. The Android app and web page connect over the phone’s hotspot to configure cues, play a selected soundtrack and inspect live results. Inference runs on the board without an internet connection.</p>
+<p>During an active session, the software checks several observations before acting. Two qualifying doorway detections can start an audio rhythm. Two qualifying movement windows can start a five-second vibration. A separate rule checks whether the freeze score has stayed high often enough over five seconds to warrant a five-second alarm. Keeping those decisions separate lets the system give an early cue and reserve the alarm for a persistent pattern.</p>
+
+<h2>What actually triggers each output?</h2>
+<table><thead><tr><th>Input</th><th>Decision in the current build</th><th>Output</th></tr></thead><tbody>
+<tr><td>Camera v6</td><td>Two consistent observations of <code>door</code> at confidence ≥ 0.50. The box centre must lie within the middle 40% of the image width.</td><td>The selected rhythm plays on the foreground controller if phone audio is ready. In board-audio mode, or if playback is unavailable, the Buzzer plays the configured beat. It can repeat while the door remains in view.</td></tr>
+<tr><td>Movement v4</td><td>At 64 Hz, each 128-sample window covers 2 seconds. A new window is available every 16 samples, nominally 0.25 seconds. Two consecutive eligible windows must both classify <code>freeze</code> first with a score ≥ 0.70.</td><td>With haptics enabled, the MCU commands a 5,000 ms train of 180 ms thigh pulses at the selected cadence and drive level. Stop can cancel it early.</td></tr>
+<tr><td>Persistent freeze</td><td>At least 5 seconds since the first qualifying score. The latest score must qualify, and at least 75% of the available scores in the last 5 seconds must qualify. A full second of low scores resets the episode.</td><td>The board Buzzer sounds a continuous 2,400 Hz tone for five seconds, once per episode. It takes priority over doorway audio.</td></tr>
+</tbody></table>
+
+<h3>A timeline for the slide</h3>
+<p>Set <strong>0.00 s</strong> at the first qualifying model result. In an uninterrupted example, the second result at <strong>0.25 s</strong> starts Vibro. The first eligible alarm decision is at <strong>5.00 s</strong>. The vibration command ends around <strong>5.25 s</strong>. The two clocks start at different observations. Actual timing also includes inference and hardware communication.</p>
+<p>Sampling continues while the motor runs. Windows that overlap vibration or settling can help evaluate an existing episode. Only clean windows can start a new episode or trigger another vibration. Physical testing is needed to measure how much motor vibration changes the scores.</p>
+
+<h2>Three-slide presentation</h2>
+<table><thead><tr><th>Slide title</th><th>What to show</th><th lang="en">Presentation point</th></tr></thead><tbody>
+<tr><td>1. Two inputs, two decisions</td><td>Camera → door box → audio rhythm<br>Movement sensor → freeze score → thigh vibration</td><td lang="en">A person can pass a doorway while walking normally and hear music. A movement event can activate vibration without a door being visible.</td></tr>
+<tr><td>2. When does the alarm sound?</td><td>Use the 0.00 → 0.25 → 5.00 → 5.25 s timeline above.</td><td lang="en">Show the two clocks. A brief score dip can be tolerated. A sustained low period resets the alarm decision.</td></tr>
+<tr><td>3. What did we verify?</td><td>Show the live camera box, freeze score and output acknowledgements. Pair a status screenshot with the physical motor and buzzer if available.</td><td lang="en">The acknowledgement confirms MCU acceptance. Time the actuator and listen to the buzzer before reporting physical performance.</td></tr>
+</tbody></table>
+
+<h3>English speaker notes · about 75 seconds</h3>
+<blockquote>
+<p>Imagine walking toward a doorway. Our camera looks for a door near the centre of the image. After two consistent detections, the system can play a rhythm on the phone or use the board’s buzzer. That cue is based on what lies ahead. It can happen even when the person is walking normally.</p>
+<p>A second model listens to the movement sensor. It analyses two seconds of acceleration at a time and updates roughly four times a second. When two windows in a row score at least zero point seven for freezing, the board commands five seconds of thigh pulses.</p>
+<p>We use a separate clock for the alarm. It starts at the first qualifying score. After five seconds, if at least three quarters of the recent scores still qualify, including the latest one, the buzzer sounds continuously for five seconds. A brief dip is allowed.</p>
+<p>Both models run on the UNO Q. On this screen we can follow a decision from the camera box or movement score through to the output command. We have tested that software sequence. Timing the physical cues and evaluating their effect on walking are separate validation steps.</p>
+</blockquote>
+
+<h2>Evidence for questions</h2>
+<p><strong>What was verified?</strong> The UNO Q sketch compiled and 27 board-software tests passed. One deterministic test supplied a temporary dip in the freeze score while a five-second motor command was active and checked the alarm time. The build reported 126,508 bytes of program storage and 57,868 bytes of static RAM for the MCU sketch. These figures exclude the Linux models.</p>
+<p><strong>What remains open?</strong> At the time this summary was prepared, deployment and physical cue timing for this build had not been confirmed in the project record. The movement model has two labels, <em>freeze</em> and <em>normal</em>. Its lower-back axis mapping still needs a mounting check. Clinical benefit has not been established by these software tests.</p>
+<p><strong>How can the team check before presenting?</strong> On the hotspot, open the board’s build page and look for <code>appBuild = freeze-pulse-alarm-v3</code> and <code>mcuCueRevision = 3</code> with <code>mcuFreezeHoldMs = 5000</code>. Start a real session with vibration enabled. Use the camera preview to see scores and output acknowledgements, and time the motor separately. <a href="http://10.105.16.241:7000/v1/build">Board build</a> · <a href="http://10.105.16.241:7000/preview">Live preview</a></p>
+<p><strong>Implementation references.</strong> Door criteria are in <a href="../board/unfreeze-uno-q/python/door.py">door.py</a> and <a href="../board/unfreeze-uno-q/python/runtime.json">runtime.json</a>. Movement thresholds and episode timing are in <a href="../board/unfreeze-uno-q/python/motion.json">motion.json</a> and <a href="../board/unfreeze-uno-q/python/motion.py">motion.py</a>. Motor-aware inference is in <a href="../board/unfreeze-uno-q/python/movement_service.py">movement_service.py</a>. Output routing, physical commands and the timing regression are in <a href="../board/unfreeze-uno-q/python/cue_session.py">cue_session.py</a>, <a href="../board/unfreeze-uno-q/sketch/CueOutputs.h">CueOutputs.h</a> and <a href="../board/unfreeze-uno-q/tests/test_sensing.py">test_sensing.py</a>.</p>
+</main></body></html>

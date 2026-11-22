@@ -1,0 +1,10 @@
+name: Unfreeze UNO Q
+icon: 🚪
+description: Local doorway detection, movement telemetry and companion control on the UNO Q.
+ports:
+  - 7000
+bricks:
+  - arduino:video_object_detection:
+      variables:
+        CUSTOM_MODEL_PATH: "/home/arduino/ArduinoApps/unfreeze-uno-q/models"
+        EI_V_OBJ_DETECTION_MODEL: "/home/arduino/ArduinoApps/unfreeze-uno-q/models/door-v6.eim"

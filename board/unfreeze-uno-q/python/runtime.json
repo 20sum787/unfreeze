@@ -1,0 +1,10 @@
+{
+  "cameraEnabled": true,
+  "benchInjection": false,
+  "door": {
+    "centerFraction": [0.3, 0.7],
+    "confirmFrames": 2,
+    "maxFrameGapSeconds": 3.0,
+    "clearSeconds": 1.5
+  }
+}

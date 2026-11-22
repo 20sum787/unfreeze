@@ -1,0 +1,22 @@
+seconds,usage,subtype,note
+0.25,training,door_left,Door left of center; open floor ahead.
+1.65,training,door_left_near,"Glass door near center-left, open floor to the right, close view."
+14.25,training,door_left_oblique,Door on the left with visible walking space on the right.
+18.25,training,door_left_gallery,Door on the left; gallery wall and floor on the right.
+34.25,training,door_right_close,Passing a nearby glass door obliquely; the view extends left.
+55.4,training,door_right_corner,Glass door on the right with a visible wall edge and floor.
+114.25,training,open_background,"Open background away from the doorway, mainly gallery wall and floor."
+136.25,training,door_right_end,"Moving away, door on the right and open floor alongside."
+25.3,open_passage,open_door_oblique,Angled open door and opening both visible; confirm the actual travel path.
+67.4,closed_or_ambiguous,vestibule_depth,Narrow space beyond glass; verify whether the near door is open and which way the wearer is moving.
+72.25,open_passage,vestibule_long,Forward vestibule view with both boundaries visible; measure width and confirm travel direction.
+88.25,open_passage,vestibule_front,Near-frontal vestibule view; check whether the far opening is passable.
+106.25,open_passage,vestibule_floor_edges,Approaching the door with wall-floor boundaries visible on both sides.
+107.2,open_passage,vestibule_reposition,Narrow vestibule after a lateral move; verify clear width and heading.
+110.25,open_passage,vestibule_near_exit,Near the bright exit with a visible foreground door frame.
+15.1,closed_or_ambiguous,closed_door_oblique,Glass ahead may be closed; a single frame is insufficient to confirm a passable opening.
+38.25,closed_or_ambiguous,glass_door_near,Large glass surface; distinguish a closed door from a passable opening.
+46.25,closed_or_ambiguous,glass_door_front,Facing glass; confirm travel direction and open/closed state.
+48.25,closed_or_ambiguous,glass_nested_frames,Another frame is visible through glass; a potential false detection.
+64.25,closed_or_ambiguous,glass_nested_near,"Close to the glass, with a distant frame near image center."
+126.25,closed_or_ambiguous,glass_nested_offcenter,Oblique view of glass and a distant frame; limited floor information.

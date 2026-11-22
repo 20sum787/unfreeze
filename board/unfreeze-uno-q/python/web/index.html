@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#145445" />
+    <title>Unfreeze · Wearable companion</title>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self' http: https: ws: wss:; media-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="vendor/socket.io-4.8.1.min.js"></script>
+    <script type="module" src="ui.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="shell mast">
+        <div class="brand">
+          <b class="mark" aria-hidden="true">∿</b> Unfreeze
+        </div>
+        <span id="link-state" role="status">Disconnected</span>
+      </div>
+    </header>
+    <div class="shell">
+      <nav aria-label="Companion pages">
+        <button data-page="session">Session</button
+        ><button data-page="device">Device</button
+        ><button data-page="sound">Sound</button
+        ><button data-page="vibration">Vibration</button
+        ><button data-page="diagnostics">Diagnostics</button>
+      </nav>
+      <main>
+        <p id="notice" role="status" hidden></p>
+        <section id="session">
+          <h1>Session</h1>
+          <div class="hero">
+            <div>
+              <span class="eyebrow">Wearable session</span>
+              <h2 id="phase">Disconnected</h2>
+              <p id="session-device">Pair a UNO Q or open the demo to begin.</p>
+            </div>
+            <div class="clock">
+              <span id="remaining">—</span><small>Time remaining</small>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="primary" id="start">Start session</button
+            ><button id="stop">Stop session</button
+            ><button id="open-device">Connect device</button>
+          </div>
+          <div class="grid">
+            <article>
+              <h3>Doorway audio</h3>
+              <strong id="door">Idle</strong>
+              <p id="vision">Camera unavailable</p>
+              <a href="/preview" target="_blank" rel="noopener">Camera &amp; live outputs</a>
+            </article>
+            <article>
+              <h3>Thigh vibration</h3>
+              <strong id="haptic">Idle</strong>
+              <p id="motion">Motion sensor unavailable</p>
+            </article>
+          </div>
+          <div class="panel" id="sim-tools" hidden>
+            <h3>Simulated inputs</h3>
+            <p>
+              Send a test event to this companion. Outputs from the demo board
+              are simulated. The selected track can play on this device.
+            </p>
+            <div class="actions">
+              <button id="demo-door">Approach doorway</button
+              ><button id="demo-risk">Simulate motion risk</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="device" hidden>
+          <h1>Device</h1>
+          <article>
+            <h2>Connect a UNO Q</h2>
+            <p>
+              <span id="network-setup"
+                >Turn on your phone’s Wi-Fi hotspot, then connect both this
+                computer and the UNO Q to it.</span
+              >
+              Enter the UNO Q’s assigned Wi-Fi IP address and App Lab port. Use
+              the board’s pairing code the first time you connect.
+            </p>
+            <label
+              >Board address<input
+                id="host"
+                value="10.105.16.241:7000"
+                inputmode="url"
+                autocapitalize="none"
+                autocomplete="off"
+            /></label>
+            <label
+              >Pairing code<input
+                id="code"
+                type="password"
+                inputmode="numeric"
+                maxlength="64"
+                autocomplete="off"
+            /></label>
+            <div class="actions">
+              <button id="connect" class="primary">Pair or reconnect</button
+              ><button id="health">Test connection</button>
+            </div>
+            <p id="board-id"></p>
+            <div class="actions">
+              <button id="disconnect">Disconnect</button
+              ><button id="forget">Forget pairing</button>
+            </div>
+          </article>
+          <article>
+            <h2>Hardware tests</h2>
+            <p>Pair the board and leave the session idle. Each test plays four beats using the current settings.</p>
+            <div class="actions">
+              <button id="quick-buzz">Test Buzzer</button>
+              <button id="quick-vib">Test Vibro</button>
+              <button id="stop-tests">Stop tests</button>
+            </div>
+            <p><a href="#sound">Adjust buzzer pitch and cadence</a> · <a href="#vibration">Adjust vibration strength and cadence</a></p>
+          </article>
+          <article>
+            <h2>Demo board</h2>
+            <p>
+              Try the session controls and cue settings with simulated camera
+              and movement events.
+            </p>
+            <button id="demo">Connect demo board</button>
+          </article>
+        </section>
+
+        <section id="sound" hidden>
+          <h1>Sound</h1>
+          <article>
+            <h2>Local rhythm track</h2>
+            <label>Track<select id="track"></select></label>
+            <label
+              >Playback volume <output id="volume-text"></output
+              ><input id="volume" type="range" min="0" max="100" step="1"
+            /></label>
+            <div class="actions">
+              <button id="audition">Audition track</button
+              ><button id="quiet">Stop playback</button>
+            </div>
+          </article>
+          <article>
+            <h2>Doorway cue</h2>
+            <p>
+              Phone preferred routes a cue to this foreground client. The board
+              can use its Buzzer if playback is unavailable.
+            </p>
+            <label>Audio route<select id="mode"></select></label>
+            <div class="fields">
+              <label
+                >Buzzer pitch (Hz)<input
+                  type="number"
+                  id="pitch"
+                  step="1" /></label
+              ><label
+                >Buzzer cadence (BPM)<input
+                  type="number"
+                  id="buzz-bpm"
+                  step="1"
+              /></label>
+            </div>
+            <div class="actions">
+              <button class="primary save">Apply settings</button
+              ><button id="buzzer-defaults">Load demo defaults</button
+              ><button class="reset">Discard draft</button>
+            </div>
+            <div class="actions">
+              <button id="test-buzz">Test Buzzer</button>
+              <button id="stop-buzz">Stop Buzzer</button>
+            </div>
+            <p class="revision"></p>
+          </article>
+        </section>
+
+        <section id="vibration" hidden>
+          <h1>Vibration</h1>
+          <article>
+            <h2>Thigh Vibro</h2>
+            <label class="check"
+              ><input id="enabled" type="checkbox" />Enable motion-triggered
+              vibration</label
+            >
+            <div class="fields">
+              <label>Drive level<select id="level"></select></label
+              ><label
+                >Pulse cadence (BPM)<input id="vib-bpm" type="number" step="1"
+              /></label>
+            </div>
+            <div class="actions">
+              <button class="primary save">Apply settings</button
+              ><button id="vibro-defaults">Load demo defaults</button
+              ><button class="reset">Discard draft</button>
+            </div>
+            <p class="revision"></p>
+          </article>
+          <article>
+            <h2>Preview</h2>
+            <p>
+              Preview the draft pulse settings while the wearable session is
+              idle.
+            </p>
+            <div class="actions">
+              <button id="preview">Test Vibro</button
+              ><button id="stop-vib">Stop vibration</button>
+            </div>
+          </article>
+        </section>
+
+        <section id="diagnostics" hidden>
+          <h1>Diagnostics</h1>
+          <div class="grid">
+            <article>
+              <h3>Vision</h3>
+              <strong id="diag-vision">Unknown</strong>
+            </article>
+            <article>
+              <h3>Movement</h3>
+              <strong id="diag-motion">Unknown</strong>
+            </article>
+          </div>
+          <article>
+            <h2>Telemetry</h2>
+            <pre id="telemetry">Waiting for telemetry.</pre>
+          </article>
+          <article>
+            <div class="row">
+              <h2>Event timeline</h2>
+              <button id="pause">Pause updates</button>
+            </div>
+            <p id="events-empty">Waiting for events.</p>
+            <div id="timeline"></div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

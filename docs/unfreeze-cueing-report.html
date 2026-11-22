@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Unfreeze | Evidence for a freezing-of-gait cueing prototype</title>
+<style>
+:root{color-scheme:light;--ink:#152b29;--muted:#455d58;--paper:#f7f8f3;--white:#fff;--line:#d1dfd7;--green:#175c49;--dark:#113c34;--light:#e8f3ea;--amber:#784009;--warm:#fbefda;--mono:"Cascadia Mono",Consolas,monospace}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.72 "Segoe UI","Microsoft YaHei UI","PingFang SC",sans-serif}a{color:#145948;text-underline-offset:.17em}a:focus-visible,summary:focus-visible{outline:3px solid #996210;outline-offset:3px}.wrap{width:min(1120px,calc(100% - 40px));margin:0 auto}header{padding:54px 0 44px;background:var(--dark);color:#fff}header p{margin:0;color:#d0e8df}.overline{font-size:.86rem;letter-spacing:.1em;font-weight:700}h1,h2,h3{line-height:1.25;margin:0 0 .75em}h1{font-size:clamp(2rem,5.35vw,3.75rem);margin:.31em 0 .4em;max-width:900px;letter-spacing:-.035em}h2{font-size:clamp(1.48rem,3vw,2rem);letter-spacing:-.025em}h3{font-size:1.12rem;margin-top:1.1em}p{margin:.55em 0 .92em}nav{background:#eaf1e8;border-bottom:1px solid var(--line)}nav .wrap{display:flex;flex-wrap:wrap;gap:5px 22px;padding:10px 0}nav a{display:inline-block;padding:6px 0;font-weight:650;font-size:.89rem;text-decoration:none}nav a:hover{text-decoration:underline}main{padding:22px 0 70px}section{padding:30px 0;border-bottom:1px solid var(--line);scroll-margin-top:12px}section:last-child{border-bottom:0}.lead{font-size:1.1rem;max-width:80ch}.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px 19px}.card h3{margin:0 0 .45em}.card p:last-child{margin-bottom:0}.callout{background:var(--light);border-left:4px solid #36826b;padding:12px 16px;margin:16px 0}.callout p{margin:.3em 0}.warm{background:var(--warm);border-left-color:#a86420}.source{font-size:.82rem;color:var(--muted);white-space:nowrap}.source a{text-decoration:none}.source a:hover{text-decoration:underline}.tablebox{overflow:auto;border:1px solid var(--line);border-radius:10px;background:#fff;margin:17px 0}table{border-collapse:collapse;width:100%;text-align:left}caption{text-align:left;font-weight:700;padding:10px 13px;color:var(--dark)}th,td{padding:10px 13px;vertical-align:top;border-bottom:1px solid var(--line)}thead th{background:#eaf3ec;color:var(--dark);font-size:.9rem}tbody tr:last-child>*{border-bottom:0}tbody th{font-weight:650;min-width:8em}td{min-width:10em}.small,.caption{font-size:.88rem;color:var(--muted)}figure{margin:18px 0}.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.flow li{position:relative;border-top:3px solid #40826e;background:var(--white);padding:12px;border-radius:8px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);border-left:1px solid var(--line)}.flow li:nth-child(2){border-top-style:dashed;border-top-color:#b57b24}.flow li:nth-child(3){border-top-color:#116250}.flow li h3{margin:0 0 .45em;font-size:1rem}.flow li p{font-size:.89rem;margin:0}.flow li:not(:last-child)::after{content:"→";position:absolute;right:-13px;top:9px;color:#41685e;z-index:1}figcaption{margin-top:.5em}.chart{margin:14px 0 0;padding:13px 15px;border:1px solid var(--line);border-radius:10px;background:#fff}.bar-row{display:grid;grid-template-columns:8.1em 1fr 3em;align-items:center;gap:9px;margin:6px 0;font-size:.9rem}.track{height:16px;background:#ebf0eb;border-radius:3px;overflow:hidden}.bar{height:100%;background:#4f806f}.bar.second{background:#23805f}.chart .caption{margin-bottom:0}.slide-list{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;counter-reset:slide}.slide-list li{counter-increment:slide;background:#fff;border:1px solid var(--line);border-radius:9px;padding:12px 15px}.slide-list li h3{margin:0 0 .45em}.slide-list li h3::before{content:counter(slide) ". ";color:var(--green)}.slide-list li p{margin:.25em 0 .5em}.refs{padding-left:1.65em;columns:2;column-gap:34px}.refs li{break-inside:avoid;margin:0 0 .75em;padding-left:.18em}.refs a{overflow-wrap:anywhere}blockquote{margin:12px 0 0;border-left:3px solid #519180;padding:.35em 1em;background:#edf5ed}code{font-family:var(--mono);font-size:.92em;overflow-wrap:anywhere}.rowlist{padding-left:1.35em}.rowlist li{margin:.46em 0}
+@media(max-width:720px){.wrap{width:calc(100% - 28px)}header{padding:34px 0 30px}section{padding:23px 0}.cols,.flow,.slide-list{grid-template-columns:1fr}.flow li:not(:last-child)::after{content:"↓";top:auto;bottom:-15px;right:10px}.refs{columns:1}th,td{padding:8px 10px}nav .wrap{gap:0 15px}.bar-row{grid-template-columns:6em 1fr 2em}.wide-table{min-width:575px}}
+@media print{@page{size:A4;margin:15mm}body{background:#fff;font-size:10.3pt}header{background:#fff;color:#111;padding:0 0 8pt}header p{color:#444}nav{display:none}.wrap{width:100%}main,section{padding:10pt 0}h1{font-size:23pt}h2{font-size:16pt}h2,h3{break-after:avoid}.cols,.slide-list{gap:8pt}.card,.flow li,.slide-list li,figure,tr{break-inside:avoid}.tablebox{overflow:visible}.wide-table{min-width:0}.flow{grid-template-columns:repeat(4,minmax(0,1fr))}.refs{columns:2}.bar,.flow li,thead th,.callout{print-color-adjust:exact;-webkit-print-color-adjust:exact}a{color:#154c40}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<p class="overline">UNFREEZE · HACKATHON RESEARCH</p>
+<h1>Parkinsonian freezing of gait<br/>Doorway rhythm and thigh vibration</h1>
+<p>Evidence review, UNO Q design and presentation notes · 21 November 2026</p>
+</div></header>
+<nav aria-label="Report contents"><div class="wrap">
+<a href="#summary">Conclusions</a><a href="#audio">Doorway rhythm</a><a href="#imu">IMU</a><a href="#haptic">Thigh vibration</a><a href="#build">Prototype sequence</a><a href="#verify">Validation</a><a href="#slides">Presentation notes</a><a href="#sources">Sources</a>
+</div></nav>
+<main class="wrap">
+<section id="summary">
+<h2>Conclusions</h2>
+<p class="lead"><strong>Two cues address different situations.</strong> The chest camera can trigger a rhythmic sound on approach to a doorway. A separate movement detector can trigger a thigh cue during suspected freezing. The competition demonstration can show each trigger independently.<strong>Prevention at doorways, reliable prediction before onset and recovery with thigh stimulation each require their own validation.</strong></p>
+<div class="cols">
+<article class="card"><h3>On-demand auditory cues have the closest clinical evidence</h3><p>Clinical guidance supports external cueing in Parkinson’s physical therapy. The 63-participant DeFOG randomized trial found an immediate benefit while using the device. Its sound followed detected freezing; applying sound before crossing a doorway is a separate hypothesis.<span class="source"> <a href="#s1">[1]</a> <a href="#s5">[5]</a></span></p></article>
+<article class="card"><h3>The thigh is a candidate site for testing perception</h3><p>In a seated study, participants with Parkinson’s disease identified thigh stimulus location correctly in 96% of trials. A separate small study tested lower-leg tendon vibration after freezing. Gait outcomes with this thigh-mounted device remain open.<span class="source"> <a href="#s9">[9]</a> <a href="#s10">[10]</a></span></p></article>
+</div>
+</section>
+<section id="audio">
+<h2>Doorways can be detected visually. Preventive cueing needs a separate test.</h2>
+<p><strong>Why doorways?</strong> Freezing of gait is a brief interruption or marked reduction of forward stepping despite the intention to walk. A doorway experiment found stride changes and increased variability on approach in people who freeze. The openings were approximately 0.675, 0.90 and 1.80 m wide. Those experimental widths do not establish a clinical alarm threshold. In a survey of 171 respondents with freezing, 69% reported doorway-related freezing. Lighting, clutter, automatic doors and space on either side also mattered.<span class="source"> <a href="#s2">[2]</a> <a href="#s3">[3]</a></span></p>
+<div aria-label="Auditory cueing evidence" class="tablebox" role="region" tabindex="0">
+<table class="wide-table"><thead><tr><th scope="col">Study</th><th scope="col">What participants did</th><th scope="col">What the prototype can draw from it</th></tr></thead><tbody>
+<tr><th scope="row">Arias and Cudeiro, 2010</th><td>Ten participants with freezing completed a route with doorways, starts and turns under uncued and rhythmic conditions. Beats ran throughout the cued route. The uncued condition came first.<span class="source"> <a href="#s4">[4]</a></span></td><td>Across the route, total episodes fell from 59 to 14 and freezing duration declined. The small sample and fixed order limit interpretation. Camera-triggered doorway cueing was not isolated.</td></tr>
+<tr><th scope="row">Zoetewei et al., 2024</th><td>The DeFOG randomized study enrolled 63 people. Personalized sound followed detected freezing.<span class="source"> <a href="#s5">[5]</a></span></td><td>Immediate within-group effect size during use:<i>d</i>= 0.57. After four weeks, an assessment without the device found no significant between-group difference in freezing severity.</td></tr>
+<tr><th scope="row">Chawla et al., 2021</th><td>Compared stride length, speed and cadence while participants followed music or a metronome.<span class="source"> <a href="#s6">[6]</a></span></td><td>Supports testing clearly audible beats in music. Preventive effects at doorways require a dedicated experiment.</td></tr>
+</tbody></table>
+</div>
+<figure aria-label="Arias and Cudeiro: 59 uncued and 14 cued episodes across the route" class="chart">
+<strong>Freezing episodes across a route with doorways and turns</strong>
+<div class="bar-row"><span>Uncued</span><div class="track"><div class="bar" style="width:98.33%"></div></div><strong>59</strong></div>
+<div class="bar-row"><span>Rhythmic cue</span><div class="track"><div class="bar second" style="width:23.33%"></div></div><strong>14</strong></div>
+<figcaption class="caption">Totals for the same ten participants in each condition; p = 0.014. Both bars use a 0–60 scale. Attribute the chart to the published study when presenting.<span class="source"> <a href="#s4">[4]</a></span></figcaption>
+</figure>
+<p><strong>Audio design.</strong> Use short local buzzer beats or a preloaded phone track whose beat is clear from the start. Adjust volume and tempo during a team demonstration. Auditory cueing before a doorway and tactile cueing during a freeze are engineering choices. The cited experiments did not compare the optimal timing of those two modalities directly.<span class="source"> <a href="#s1">[1]</a> <a href="#s4">[4]</a> <a href="#s5">[5]</a> <a href="#s6">[6]</a></span></p>
+</section>
+<section id="imu">
+<h2>Motion during freezing and prediction before onset are separate tasks</h2>
+<div class="cols">
+<article class="card"><h3>Freeze · Detection during an episode</h3><p>In a 2022 offline study of 12 participants, the waist plus left thigh configuration reported sensitivity<strong>78.9%</strong>, specificity<strong>91.3%</strong> and precision<strong>46.4%</strong>. This supports investigating two sensors and illustrates how overall accuracy can conceal false positives. These results apply to the published dataset and evaluation.<span class="source"> <a href="#s7">[7]</a></span></p></article>
+<article class="card"><h3>Pre-FoG · Prediction before onset</h3><p>Palmerini et al. retrospectively studied 11 participants who froze using both ankles and the lower back, with labels covering two seconds before onset. Mean cross-participant AUC was approximately<strong>0.76</strong>. A different sensor layout needs independent validation, especially for akinetic freezing, slow walking, voluntary stops and turns.<span class="source"> <a href="#s8">[8]</a></span></p></article>
+</div>
+<ol class="rowlist">
+<li><strong>Placement.</strong> In a two-IMU experiment, a lateral thigh sensor can capture leg swing while a lower-back sensor captures trunk motion. Mount a thigh actuator separately from the IMU and measure interference during vibration. The submitted v4 classifier uses one primary lower-back IMU.</li>
+<li><strong>Data.</strong> Daphnet provides thigh and trunk acceleration for replay, with freezing, nonfreezing and invalid periods. Pre-FoG labels would have to be derived; gyroscope features require another training source.<span class="source"> <a href="#s12">[12]</a></span></li>
+<li><strong>Evaluation.</strong> Use labeled in-episode windows for detection. For prediction, end each input window before onset and report actual warning time separately from the two-second labeling interval. Split by participant and recording before constructing overlapping windows. Include voluntary stops, turns, starts, stamping, waiting and actuator-on periods when measuring false alarms.<span class="source"> <a href="#s8">[8]</a> <a href="#s12">[12]</a></span></li>
+</ol>
+</section>
+<section id="haptic">
+<h2>Test whether people feel a thigh cue before assessing its gait effect</h2>
+<div aria-label="Vibration parameters and outcome evidence" class="tablebox" role="region" tabindex="0">
+<table class="wide-table"><thead><tr><th scope="col">Claim examined</th><th scope="col">Original evidence</th><th scope="col">Design implication</th></tr></thead><tbody>
+<tr><th scope="row">Thigh 96%, wrist 92%</th><td>A seated perception experiment included 21 participants with Parkinson’s and 21 age-matched controls. The Parkinson’s group correctly localized anterior thigh and wrist stimulation in 96% and 92% of trials. The site difference was not significant.<span class="source"> <a href="#s9">[9]</a></span></td><td>The thigh is a plausible cue location. The 96% measures localization; recovery of gait was a different outcome.</td></tr>
+<tr><th scope="row">Vibration on the less affected side after onset</th><td>In a study of 16 people, researchers applied triceps surae tendon vibration at the first freeze. The first episode was shorter with less-affected-side stimulation (p = 0.038). Continued stimulation did not significantly prevent subsequent episodes.<span class="source"> <a href="#s10">[10]</a></span></td><td>This motivates a reactive demonstration. Moving to thigh skin and automatic detection changes the stimulation site, mechanism and timing.</td></tr>
+<tr><th scope="row">180 Hz、250 ms</th><td>A torso study reported vibration perception at 180 Hz and a minimum perceived interval of 250 ms. A 2025 thigh study used motors calibrated to 180 Hz for static perception without comparing frequencies.<span class="source"> <a href="#s9">[9]</a> <a href="#s13">[13]</a></span></td><td>These are bench references. The suggested 80–250 Hz range and the 250 ms interval do not establish an optimal thigh carrier or pulse duration.</td></tr>
+<tr><th scope="row">Can vibration improve freezing?</th><td>A 31-participant vibrating-sock study compared uncued walking, auditory cues and two tactile conditions. The group showed no significant reduction in percentage of time frozen, and individual responses varied.<span class="source"> <a href="#s11">[11]</a></span></td><td>First verify timely, recognizable output. Assess clinical outcomes for the specific person, conditions and device.</td></tr>
+</tbody></table>
+</div>
+<div class="callout"><p><strong>Carrier frequency and cue tempo.</strong> Carrier frequency in hertz describes vibration inside a pulse. Tempo in beats per minute describes the spacing of pulses: 100 BPM gives 600 ms between starts. Pulse duration and drive level are independent settings. Actuator and driver characteristics determine the actual carrier at the skin. A PWM setting alone cannot establish it.<span class="source"> <a href="#s9">[9]</a> <a href="#s17">[17]</a></span></p></div>
+</section>
+<section id="build">
+<h2>Proposed sensing, cueing and stopping sequence</h2>
+<figure>
+<ol aria-label="Proposed prototype sequence" class="flow">
+<li><h3>Approach an opening</h3><p>The proposed visual gate combines repeated forward detections with walking and approach evidence. The submitted gate uses box position and frame stability.</p></li>
+<li><h3>Suspected Pre-FoG</h3><p>For an experimental predictor, log scores and timestamps first. Evaluate any optional short tactile cue separately. The current model emits freeze and normal.</p></li>
+<li><h3>Detected freeze</h3><p>After confirmation, request a thigh cue. The submitted implementation uses a five-second pulse train and prioritizes the sustained-freeze buzzer alarm over doorway audio.</p></li>
+<li><h3>Recovery or exit</h3><p>The design calls for ending cues on recovery, timeout or manual stop and recording the result. Current firmware bounds output duration and implements cancellation.</p></li>
+</ol>
+<figcaption class="caption">Motion detection can operate without a door. A future walking-context model must distinguish standing and intentional stops. Evaluate interruptions of ongoing walking separately from freezing at gait initiation.</figcaption>
+</figure>
+<div class="cols">
+<article class="card"><h3>Visual gating</h3><p>Retain the UNO Q video detection Brick. Box center and stability help filter side doors and fleeting detections. Increasing box size could be investigated as an approach cue. A range reading from the wall beyond a door cannot establish its clear width. Rearm after leaving the qualifying view.<span class="source"> <a href="#s14">[14]</a></span></p></article>
+<article class="card"><h3>Local buzzer and thigh motor</h3><p>Linux runs inference and sends cue parameters and stop requests to the MCU over Bridge. The MCU times each output. Use the module buzzer for beats and a phone or suitable speaker for tracks. Match the thigh actuator to its driver and power supply.<span class="source"> <a href="#s15">[15]</a> <a href="#s17">[17]</a></span></p></article>
+<article class="card"><h3>Customizable phone audio</h3><p>Use foreground LAN events for the demo. Keep the phone awake, audition the selected track and preload a clear first beat. Begin local playback on<code>cue_start</code> and stop on<code>cue_stop</code>. Deduplicate by cue identifier and record the actual first beat.<span class="source"> <a href="#s14">[14]</a> <a href="#s16">[16]</a></span></p></article>
+<article class="card"><h3>Network loss and screen lock</h3><p>Use the board buzzer as fallback and discard stale cues after reconnect. Background or lock-screen playback would require platform-specific testing. Android Media3 documents a possible future implementation.<span class="source"> <a href="#s18">[18]</a></span></p></article>
+</div>
+</section>
+<section id="verify">
+<h2>Verify when the cue reaches the user</h2>
+<p><strong>Existing vision result.</strong> The team's Edge Impulse INT8 validation screenshot shows mAP@50 of 0.90, mAP@75 of 0.67 and overall mAP of 0.54. Images came from two videos of one vestibule. Measure opening-width error, performance at new sites and end-to-end timing separately.<span class="source"> <a href="#s19">[19]</a></span></p>
+<div aria-label="Demo tests and measures" class="tablebox" role="region" tabindex="0">
+<table class="wide-table"><thead><tr><th scope="col">Question</th><th scope="col">Method</th><th scope="col">Measurements</th></tr></thead><tbody>
+<tr><th scope="row">Does the beat arrive before crossing?</th><td>Use previously unseen doors. Compare frontal approach, passing alongside, standing facing a door, wide openings and closed glass. Fix chest-camera height.</td><td>Timely cues per positive route, false triggers on negative routes and time from first beat to crossing.</td></tr>
+<tr><th scope="row">Freezing detection and prediction</th><td>Replay labeled Daphnet data chronologically. Align sensor and actuator records. Use team walking, stopping and turning to check false triggers. Record audio and motor state.<span class="source"> <a href="#s12">[12]</a></span></td><td>Event recall, false alarms per hour, onset-to-cue and detection-to-cue latency. Report predictive lead time separately and exclude windows containing freezing from prediction.</td></tr>
+<tr><th scope="row">Phone audio and thigh vibration</th><td>Compare the local buzzer and phone's first beat for the same trigger. Test disconnection, repeated triggers and motion readings with the motor running.</td><td>Trigger success, median and tail latency, perception across drive levels and false detections. Use one recording clock or synchronize devices.</td></tr>
+<tr><th scope="row">Does it help patients?</th><td>A future patient study would need clinical collaboration, approved procedures, informed consent and supervision. Compare advance rhythm, reactive vibration and an uncued condition.</td><td>Episode count, proportion of time frozen, recovery time, false cues and acceptability. Report patient outcomes separately from team demonstrations.<span class="source"> <a href="#s1">[1]</a> <a href="#s5">[5]</a> <a href="#s11">[11]</a></span></td></tr>
+</tbody></table>
+</div>
+</section>
+<section id="slides">
+<h2>Presentation notes</h2>
+<p class="small">Six slides for a four-minute demonstration. Reserve slide five for measured footage, screenshots and timing. The sequence diagram and study chart can be redrawn in PowerPoint.</p>
+<ol class="slide-list">
+<li><h3>At a doorway, a person intends to walk but cannot take the next step</h3><p>Use a chest-view doorway image. The 69% survey figure refers to 171 respondents who already reported freezing.<span class="source"> <a href="#s3">[3]</a></span></p></li>
+<li><h3>Rhythm on approach, tactile cue on suspected freezing</h3><p>Show approach, suspected freezing and recovery on a timeline. Mark pre-onset prediction as experimental.</p></li>
+<li><h3>Three findings that shaped the design</h3><p>The route study counted 59 versus 14 episodes; the DeFOG trial enrolled 63; thigh localization was 96%. Label these as continuous rhythm, reactive audio and seated perception. They measure different outcomes.<span class="source"> <a href="#s4">[4]</a> <a href="#s5">[5]</a> <a href="#s9">[9]</a></span></p></li>
+<li><h3>On-board inference and selectable phone tracks</h3><p>Draw the camera and primary IMU feeding the UNO Q. Show Bridge, MCU timing and the three outputs. Mark a second IMU as an experimental comparison channel.</p></li>
+<li><h3>Demonstrate three scenarios</h3><p>Approach a door, pass a door sideways and replay a labeled movement sample. Annotate the first box, audible beat and vibration from a live recording or measured log.</p></li>
+<li><h3>What has been tested and what comes next</h3><p>Report the same-site INT8 mAP@50 of 0.90 and only route measurements the team actually recorded. New settings, prediction before onset and clinical benefit remain separate evaluation tasks.<span class="source"> <a href="#s19">[19]</a></span></p></li>
+</ol>
+<h3>Suggested wording for questions</h3>
+<blockquote>Unfreeze detects a stable doorway in front of the camera and can provide an audible beat. A separate on-board motion classifier estimates freezing from lower-back acceleration and can trigger thigh vibration. Labeled replay checks the decision logic. Evaluation at new doorways and measurement of physical and clinical effects are separate tasks.</blockquote>
+<p class="small">Presentation closing line:<span lang="en">Unfreeze delivers a rhythmic audio cue on approach to a doorway, and an on-demand thigh haptic cue when the motion model flags a possible freeze.</span></p>
+</section>
+<section id="sources">
+<h2>Sources</h2>
+<p class="small">Clinical figures come from primary studies, a dataset and a clinical guideline. Engineering references document the platforms and protocols. The tables, text and figures can be viewed offline.</p>
+<ol class="refs">
+<li id="s1"><a href="https://doi.org/10.1093/ptj/pzab302">APTA clinical practice guideline for Parkinson disease, 2022</a> · External cueing and its evidence boundaries.</li>
+<li id="s2"><a href="https://jnnp.bmj.com/content/81/5/513">Almeida and Lebold, 2010</a> · Doorway-width experiment.</li>
+<li id="s3"><a href="https://doi.org/10.3389/fneur.2023.1265409">Cockx et al., 2023</a> · Survey of doorway characteristics.</li>
+<li id="s4"><a href="https://doi.org/10.1371/journal.pone.0009675">Arias and Cudeiro, 2010</a> · Metronome and freezing events, Figure 2 and Table 2.</li>
+<li id="s5"><a href="https://doi.org/10.1002/mds.29762">Zoetewei et al., 2024</a> · DeFOG randomized trial.<a href="https://lirias.kuleuven.be/retrieve/32b56e2d-a261-47a9-b246-c18fdc3a8147">Author-provided full text</a>。</li>
+<li id="s6"><a href="https://doi.org/10.1123/mc.2020-0038">Chawla et al., 2021</a> · Gait parameters with music and metronome cues.</li>
+<li id="s7"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9210754/#Tab4">Recognition of freezing of gait based on combined wearable sensors，2022</a> · Dual-IMU detection, Table 4.</li>
+<li id="s8"><a href="https://doi.org/10.3389/fneur.2017.00394">Palmerini et al., 2017</a> · Offline Pre-FoG classification.</li>
+<li id="s9"><a href="https://doi.org/10.1186/s12938-024-01326-9">Raghuvanshi et al., 2025</a> · Static vibration localization at different sites.</li>
+<li id="s10"><a href="https://pubmed.ncbi.nlm.nih.gov/27245918/">Pereira et al., 2016</a> · Lower-leg muscle vibration, timing and side.<a href="https://repositorio.unesp.br/server/api/core/bitstreams/ab6cf419-5bf8-4c4b-9520-244f595d9051/content">University repository full text</a>。</li>
+<li id="s11"><a href="https://doi.org/10.1007/s00415-023-11663-9">Good vibrations，2023</a> · Haptic socks, auditory cues and uncued walking.</li>
+<li id="s12"><a href="https://archive.ics.uci.edu/dataset/245/daphnet%2Bfreezing%2Bof%2Bgait">UCI Daphnet FoG</a> · Channels, labels and download.<a href="https://doi.org/10.1109/TITB.2009.2036165">Original publication</a>。</li>
+<li id="s13"><a href="https://pubmed.ncbi.nlm.nih.gov/30317396/">Gonçalves et al., 2018</a> · Vibration perception frequency and intervals at the waist.</li>
+<li id="s14"><a href="https://github.com/arduino/app-bricks-examples/tree/main/inspirational/common/video-generic-object-detection">Arduino Detect Objects on Camera</a> · Detection and WebUI example.</li>
+<li id="s15"><a href="https://docs.arduino.cc/software/app-lab/bridge/bridge-api">Arduino Bridge RPC</a> · Linux/MCU communication on the UNO Q.</li>
+<li id="s16"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Best_practices#autoplay_policy">MDN Web Audio</a> · User-gesture requirements for audio.</li>
+<li id="s17"><a href="https://www.ti.com/product/DRV2605L">TI haptic driver documentation</a> · ERM, LRA and resonance tracking.</li>
+<li id="s18"><a href="https://developer.android.com/media/media3/session/background-playback">Android Media3</a> · Background media playback.</li>
+<li id="s19">Team-provided Edge Impulse INT8 validation screenshot · internal prototype result.</li>
+</ol>
+</section>
+</main>
+</body>
+</html>

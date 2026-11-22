@@ -1,0 +1,4 @@
+# App Lab mounts the imported app at /app. Resolve the complete ARM wheel set locally.
+--no-index
+--find-links /app/wheels/companion
+-r requirements-common.txt

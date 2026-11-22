@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>Unfreeze · Camera and cue status</title>
+  <style>
+    * { box-sizing: border-box }
+    body { margin: 0; color: #172c27; background: #f4f6f0; font: 1rem/1.5 Inter, system-ui, sans-serif }
+    main { max-width: 1100px; margin: auto; padding: clamp(12px, 3vw, 32px) }
+    header, form { display: flex; align-items: center; flex-wrap: wrap; gap: 12px }
+    header { justify-content: space-between; margin-bottom: 12px }
+    h1 { margin: 0; font-size: clamp(1.35rem, 3vw, 2rem) }
+    a { color: #145445 }
+    iframe { display: block; width: 100%; height: min(66vh, 75vw); min-height: 170px; border: 0; border-radius: 10px; background: #14231f }
+    dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin: 14px 0 }
+    dl div { background: white; border: 1px solid #c5d3cc; padding: 12px 14px; border-radius: 8px }
+    dt { font-size: .9rem; color: #4d625a }
+    dd { margin: 4px 0 0; font-weight: 650; font-variant-numeric: tabular-nums }
+    dd[data-active="true"] { color: #07603d }
+    form[hidden] { display: none }
+    button, input { border-radius: 6px; font: inherit; padding: 6px 10px }
+    input { width: 8em; border: 1px solid #7e9188 }
+    button { border: 0; background: #215548; color: white; cursor: pointer }
+  </style>
+</head>
+<body><main>
+  <header><h1>Camera and cue status</h1><a href="/preview/camera" target="_blank" rel="noopener">Open camera feed</a></header>
+  <iframe src="/preview/camera" title="Camera feed with doorway detection boxes" allowfullscreen></iframe>
+  <dl>
+    <div><dt>Freeze score</dt><dd id="freeze">—</dd></div>
+    <div><dt>Phone / browser audio</dt><dd id="speaker">—</dd></div>
+    <div><dt>Board buzzer</dt><dd id="buzzer">—</dd></div>
+    <div><dt>Vibro</dt><dd id="vibro">—</dd></div>
+  </dl>
+  <p id="status" role="status">Reading board status…</p>
+  <form id="access" hidden>
+    <label>Board pairing code <input name="code" type="password" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required></label>
+    <button>View live status</button>
+  </form>
+</main><script type="module" src="/preview.js"></script></body></html>

@@ -1,0 +1,25 @@
+# Platform build directories (keep the two deployment EIMs and offline wheels).
+/build/
+/.build/
+/.pio/
+/.cache/
+/dist/
+__pycache__/
+*.py[cod]
+*.elf
+*.map
+*.hex
+*.bin
+*.su
+*.log
+.idea/
+.vscode/
+.venv/
+.DS_Store
+Thumbs.db
+# Board-local sessions, credentials and generated state
+/data/
+.env
+.env.*
+!.env.example
+.app-yaml-*
